@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 
+import java.time.LocalDate;
+
 @Service
 public class PdfService {
     private final PdfUtil pdfUtil;
@@ -18,7 +20,15 @@ public class PdfService {
 
     public ResponseContent generatePdf(){
         Tax tax = new Tax(
-
+                "CTX-001",
+                "TAX-98765",
+                "Cliente de Prueba S.A.",
+                "Bogotá",
+                LocalDate.now().toString(),
+                "Servicios de consultoría tecnológica",
+                250000.00,
+                47500.00,
+                297500.00
         );
 
         Context context = new Context();

@@ -1,11 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Taxes</title>
+    <meta charset="UTF-8"/>
+    <title>PdfMaker - Tax Report</title>
+    <link rel="stylesheet" href="Style.css"/>
 </head>
 <body>
-
+<div class="mainContent">
+    <table>
+        <tr>
+            <td class="w-260">
+                <img src="img/Logo_Aras_Final.jpg" class="w-200"/>
+            </td>
+            <td class="w-360 text-center font-12">
+                <strong>REPORTE DE IMPUESTOS</strong><br/>
+                <span th:text="|Fecha: ${taxtManager.LOCALDATE}|"></span>
+            </td>
+            <td class="w-200 text-right">
+                <img src="img/Logo_Gear.jpg" class="w-160"/>
+            </td>
+        </tr>
+    </table>
+    <div class="mt-1 border-box">
+        <table class="font-11 d b3">
+            <tr>
+                <td class="w-100"><strong>ID Contexto:</strong></td>
+                <td th:text="${taxtManager.ID_CONTEXT}"></td>
+            </tr>
+            <tr>
+                <td><strong>Cliente:</strong></td>
+                <td th:text="${taxtManager.CLIENT}"></td>
+            </tr>
+            <tr>
+                <td><strong>Ciudad:</strong></td>
+                <td th:text="${taxtManager.CITY}"></td>
+            </tr>
+            <tr>
+                <td><strong>Tax ID:</strong></td>
+                <td th:text="${taxtManager.TAX_ID}"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="mt-1 invoice-table border-box">
+        <table class="font-11 d b3">
+            <tr class="bg-gray text-center">
+                <td class="w-400 border-right"><strong>Descripción</strong></td>
+                <td class="w-120 border-right"><strong>Precio</strong></td>
+                <td class="w-120 border-right"><strong>IVA</strong></td>
+                <td class="w-120"><strong>Total</strong></td>
+            </tr>
+            <tr>
+                <td class="border-right" th:text="${taxtManager.CONTENT}"></td>
+                <td class="border-right text-right" th:text="|$${#numbers.formatDecimal(taxtManager.PRICE, 1, 2)}|"></td>
+                <td class="border-right text-right" th:text="|$${#numbers.formatDecimal(taxtManager.IVA, 1, 2)}|"></td>
+                <td class="text-right" th:text="|$${#numbers.formatDecimal(taxtManager.TOTAL_PRICE, 1, 2)}|"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="mt-1 border-box">
+        <table class="font-10 d b3">
+            <tr>
+                <td><strong>Observaciones:</strong></td>
+            </tr>
+            <tr>
+                <td class="font-11">
+                    Este reporte ha sido generado automáticamente con <strong>PdfMaker</strong>.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <footer class="mt-2 text-center">
+        <p class="font-9">Documento generado con Spring Boot, Thymeleaf y OpenHTMLtoPDF</p>
+    </footer>
+</div>
 </body>
 </html>

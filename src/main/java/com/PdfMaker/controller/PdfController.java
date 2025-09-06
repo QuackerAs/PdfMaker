@@ -16,6 +16,6 @@ public class PdfController {
 
     @GetMapping("/generate")
     public ResponseEntity<byte[]> generatePdfTax(){
-        return PdfResponseBuilder.build(PdfService.generatePdf());
+        return PdfResponseBuilder.build(pdfService.generatePdf());
     }
 }
