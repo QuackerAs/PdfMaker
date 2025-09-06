@@ -38,14 +38,3 @@ templates/ → Plantillas Thymeleaf utilizadas como base.
 
 utils/ → Métodos auxiliares para manejo de archivos y streams.
 
-📌 Uso básico
-
-Definir una plantilla HTML con Thymeleaf en src/main/resources/templates.
-
-Llamar al servicio de generación de PDF pasando el modelo de datos.
-
-Obtener el PDF como archivo descargable o como byte[] para integraciones.
-
-Ejemplo de invocación desde el servicio:
-
-byte[] pdfBytes = pdfUtil.generateByte("templateName", context);
