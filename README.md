@@ -32,6 +32,8 @@ controller/ → Endpoints para generar y descargar PDFs.
 
 service/ → Lógica de renderizado y conversión a PDF.
 
+model/ -> Modelos utilizados para popular el HTML
+
 templates/ → Plantillas Thymeleaf utilizadas como base.
 
 utils/ → Métodos auxiliares para manejo de archivos y streams.
